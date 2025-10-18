@@ -1,5 +1,5 @@
 variable "aws_region" {
-  description = "AWS region"
+  description = "AWS region to deploy resources"
   type        = string
   default     = "us-east-1"
 }
@@ -10,13 +10,14 @@ variable "instance_type" {
   default     = "t3.micro"
 }
 
-variable "pavankey" {
-  description = "Name of an existing AWS EC2 KeyPair to use for SSH access"
+variable "key_name" {
+  description = "Name of the EC2 Key Pair to create"
   type        = string
+  default     = "devops-key"
 }
 
-variable "allowed_cidr" {
-  description = "CIDR block allowed to access management ports (SSH, Jenkins etc.)"
+variable "allowed_ip" {
+  description = "Public IP address range allowed for SSH and HTTP access"
   type        = string
   default     = "0.0.0.0/0"
 }
